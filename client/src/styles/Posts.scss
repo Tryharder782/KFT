@@ -1,0 +1,189 @@
+body {
+	.postsRow {
+		opacity: 0;
+		transition: all 0.3s ease;
+
+		
+		.loaded {
+
+
+			display: flex;
+			flex-flow: row nowrap;
+
+
+
+			.contentt {
+				display: flex;
+				background: transparent;
+				flex: 1;
+				flex-grow: 1;
+				height: calc(100vh - 60px);
+				flex-basis: 100%;
+				color: #fff;
+				flex-flow: column;
+				overflow-y: scroll;
+
+				.post {
+					max-width: 100%;
+					display: flex;
+					flex-flow: column;
+					padding-top: 15px;
+					height: auto;
+
+					.inputContainer {
+						padding: 10px 0;
+					}
+
+
+					.postContent {
+						box-sizing: border-box;
+						width: 100%;
+						padding: 0 80px;
+
+						.postHead {
+							.postAuthor {
+								padding: 10px 0;
+								display: flex;
+								align-items: center;
+
+								img {
+									border-radius: 50%;
+									border: 1px solid white;
+								}
+
+								.userName {
+									font-size: 1.2em;
+									margin-left: 10px;
+									transform: translateY(-10px);
+								}
+							}
+
+							.postText {
+								padding: 10px 0;
+								font-size: 1em;
+								font-family: 'Rounded Mplus 1c Regular';
+							}
+						}
+
+						.postBody {
+							max-height: 1000px;
+							display: flex;
+							flex-flow: column;
+
+							.media {
+								height: 50%;
+								text-align: center;
+
+								.mediaItem {
+									.video {
+										width: 100%;
+									}
+								}
+
+								.postMedia {
+									max-width: 1000px;
+									max-height: 800px;
+									border-radius: 15px;
+								}
+							}
+						}
+
+						.counters {
+							color: #747474;
+							font-size: 1.25em;
+							// background: rgb(20, 20, 20);
+							display: inline-block;
+							padding: 10px;
+							border-radius: 15px;
+
+							.likes {
+								padding-right: 1.25em;
+								display: inline-block;
+							}
+
+							.shares {
+								display: inline-block;
+							}
+
+							.img {
+								cursor: pointer;
+							}
+
+
+
+							.likesCounter {
+								display: inline-block;
+								padding-left: 10px;
+								transform: translateY(-7px);
+							}
+
+							.sharesCounter {
+								transform: translateY(-7px);
+								padding-left: 10px;
+								display: inline-block;
+							}
+						}
+
+					}
+
+					.comments {
+						padding: 0 30px;
+						display: flex;
+						flex: 1;
+						flex-direction: column;
+
+						.comment {
+							display: flex;
+							padding: 20px 0;
+
+							.actions {
+								display: flex;
+								align-items: center;
+								margin-left: auto;
+
+								.like {
+									margin-left: 20px;
+									cursor: pointer;
+								}
+
+								.response {
+									cursor: pointer;
+								}
+							}
+
+							.commentBody {
+								padding-left: 15px;
+							}
+
+							.senderUserName {
+								font-size: 1em;
+								transform: translateY(-10px);
+							}
+
+							.text {
+								margin-top: 6px;
+								font-size: 0.9em;
+								font-family: 'Rounded Mplus 1c Regular';
+							}
+						}
+					}
+
+					.loadComments {
+						text-align: center;
+						cursor: pointer;
+					}
+
+					.postDivider {
+						margin: 10px 30px;
+						border-top: 3px solid #3a3a3a;
+						background: transparent;
+					}
+				}
+			
+			}
+		}
+		.loadingScreen {
+			
+		}
+	}
+}

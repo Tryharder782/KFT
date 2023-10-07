@@ -1,0 +1,243 @@
+@font-face {
+	font-family: 'mplusRegular';
+	src: url(../styles/fonts/MPLUSRounded1c-Regular.ttf);
+}
+
+body {
+	.home {
+		display: flex;
+		color: white;
+		height: calc(100vh - 60px);
+		overflow-y: scroll;
+		overflow-x: hidden;
+		opacity: 0;
+		transition: opacity 0.7s ease;
+		flex-grow: 1;		
+		.HomeContainer {
+			width: 70vw;
+			margin: 50px auto 0 auto;
+			margin-top: 50px;
+			
+			.CreatePostBlock{
+				margin-top: 40px;
+				margin-bottom: 40px;
+				z-index: 10;
+				.hidden{
+					z-index: -10;
+					opacity: 0;
+				}
+				.shown{
+					z-index: 10;
+				}
+				.createPostPopup{
+					transition: 0.5s ease;
+					width: 100vw;
+					height: calc(100vh - 60px);
+					display: flex;
+					position: absolute;
+					top: 60px;
+					left: 0;
+					background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.5));
+					.container{
+						box-sizing: border-box;
+						padding: 20px 50px;
+						position: relative;
+						border-radius: 20px;
+						width: 60vw;
+						max-height: 80%;
+						margin: 0 auto;
+						margin-top: 50px;
+						z-index: 5;
+						background: #121212;
+						display: flex;
+						flex-flow: column;
+						.inputContainer{
+							padding: 10px 0;
+							margin: 0;
+							background: transparent;
+							.input{
+								border-radius: 20px;
+								padding-left: 20px;
+								background: #000;
+								display: flex;
+								width: auto;
+								margin-right: 0;
+								align-items: center;
+								.textareaContainer {
+									font-size: 1em;
+								}
+							}
+						}
+						.imgPin{
+							position: relative;
+							box-sizing: border-box;
+							width: 100%;
+							height: 50vh;
+							margin: 10px auto;
+							background: #000;
+							display: flex;
+							text-align: center;
+							padding: 10px;
+							border-radius: 20px;
+							.previewBlock{
+								display: flex;
+								flex-flow: column;
+								justify-content: space-around;
+								align-items: center;
+								width: 100%;
+								.filePreview{
+									width: 80%;
+									height: 80%;
+									img{
+										border-radius: 10px;
+										max-width: 100%;
+										max-height: 100%;
+									}
+								}
+								.images{
+									justify-content: center;
+									width: 70%;
+									display: flex;
+									flex-flow: row;
+									.item{
+										cursor: pointer;
+										transition: opacity 0.3s ease;
+										position: relative;
+										overflow: hidden;
+										width: 50px;
+										height: 50px;
+										margin-left: 20px;
+										border-radius: 10px;
+										img{
+											object-fit: cover;
+										}
+										.removeFile{
+											position: absolute;
+											width: 20px;
+											height: 20px;
+											transition: all 0.3s ease;
+											top: 3px;
+											right: 3px;
+											opacity: 0;
+											z-index: 10;
+											border-radius: 5px;
+											display: flex;
+											justify-content: center;
+											align-items: center;
+											.xIco{
+												transition: all 0.3s ease;
+												cursor: pointer;
+												width: 15px;
+												height: 15px;
+											}
+										}
+										.removeFile:hover{
+											background: rgba($color: #000000, $alpha: 0.2);
+										}
+									}
+									.item:first-child {
+										margin: 0;
+									}
+									.item:hover>.removeFile{
+										opacity: 1;
+									}
+									.item:hover{
+										opacity: 0.7;
+									}
+									.addFile {
+										cursor: pointer;
+										box-sizing: border-box;
+										border: 2px solid rgb(95, 93, 93);
+										display: flex;
+										justify-content: center;
+										align-items: center;
+										svg {
+											width: 30px !important;
+											height: 30px !important;
+										}
+									}
+									.selectedFile{
+										box-sizing: border-box;
+										width: 100%;
+										height: 100%;
+										object-fit: contain;
+										margin: 0;
+									}
+								}
+							}
+							.logoContainer{
+								cursor: pointer;
+								width: 100%;
+								height: 100%;
+								display: flex;
+								.photoLogo{
+									margin: auto auto;
+									width: 50px;	
+									height: 50px;
+									transform: translateY(-20px);
+									g{
+										path{
+											transition: all 0.3s ease;
+										}
+									}
+								}
+							}
+						}
+						.logoContainer:hover>.photoLogo{
+							g{
+								path{
+									fill: white;
+								}
+							}
+						}
+						.buttons{
+							margin-top: 30px;
+							display: flex;
+							flex-flow: row;
+							justify-content: center;
+							align-items: center;
+							.button{
+								font-size: 0.9em;
+								display: flex;
+								align-items: center;
+								border-radius: 10px;
+								cursor: pointer;
+								width: 20%;
+								height: 50px;
+								text-align: center;
+								span{
+									flex-grow: 1;
+								}
+							}
+							.cancel{
+								background: #210000;
+							}
+							.submit{
+								background: #000;
+								margin-left: 40px;
+							}
+						}
+					}
+				}
+				.buttonBlock {
+					cursor: pointer;
+					display: flex;
+					padding: 40px 40px;
+					border-radius: 20px;
+					border:  1px solid #5F5D5D;
+					.text {
+						display: flex;
+						align-items: center;
+						color: #5F5D5D;
+						font-size: 1.2em;
+						font-family: 'mplusRegular';
+					}
+					.ico {
+						display: inline-block;
+						margin-left: auto;
+					}
+				}
+			}
+		}
+	}
+}

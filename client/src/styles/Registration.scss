@@ -1,0 +1,294 @@
+
+.registrationContainer {
+	background: linear-gradient(rgb(0,0,0), rgba(30,30,30,0.5));
+	color: #fff;
+	height: auto;
+	display: flex;
+	flex: 1 1;
+	justify-content: center;
+	align-items: center;
+
+	.registration {
+		transform: translateY(-100px);
+		transition: 0.5s ease;
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+
+		.title {
+			margin-top: 140px;
+			text-align: center;
+
+			.mainTitle {
+				font-size: 2.7em;
+			}
+
+			.subTitle {
+				margin-top: 20px;
+				font-size: 1.5em;
+			}
+			.description {
+				margin-top: 10px;
+			}
+		}
+		.inputs {
+			transition: 0.5s ease;
+			height: auto;
+			margin-top: 15px;
+			width: 200vw;
+			overflow: hidden;
+			display: flex;
+			.phoneNumber input::-webkit-inner-spin-button,
+			.phoneNumber input::-webkit-outer-spin-button{
+				appearance: none;
+				margin: 0;
+			}
+			.phoneNumber{
+				p{
+					margin-bottom: 5px;
+				}
+				.input{
+					padding: 0 12px;
+					color: white;
+					box-sizing: border-box;
+					width: 30vw;
+					height: 2.7vw;
+					background: #2A2A2A;
+					border-radius: 20px;
+					align-items: center;
+					display: flex;
+					.plus{
+						margin-bottom: 3px;
+					}
+					input{
+						padding: 0;
+						margin: 0;
+						background: transparent;
+					}
+				}
+			}
+			input {
+				padding: 0 12px;
+				color: white;
+				margin-top: 5px;
+				box-sizing: border-box;
+				width: 30vw;
+				height: 2.7vw;
+				background: #2A2A2A;
+				border-radius: 20px;
+				border: 2px solid transparent;
+			}
+			.stage1 {
+				// margin-left: 25%;
+				flex-basis: 100%;
+				position: relative;
+				justify-content: center;
+				width: 100vw;
+				display: flex;
+				flex-flow: row nowrap;
+				.item {
+					margin-bottom: 20px;
+					
+				}
+				.wrongInput{
+					p{
+						animation: wrongInputPAnimation 2s ease;
+					}
+
+				}
+				.col2 {
+					padding-left: 100px;
+					display: flex;
+					flex-flow: column;
+					justify-content: space-around;
+					.birthDate {
+						padding: 10px 0 18px;
+
+						select {
+							font-size: 1em;
+							margin-left: 10px;
+							border: none;
+							border-radius: 15px;
+							padding: 0 5px 0 10px;
+							color: white;
+							background: #2A2A2A;
+							font-family: inherit;
+							outline: none;
+							width: auto;
+							min-height: 20px;
+						}
+
+						select::-webkit-scrollbar {
+							display: none;
+						}
+
+						.select-wrapper {
+							display: inline-block;
+						}
+
+					}
+				}
+			}
+			.stage2 {
+				margin-top: 30px;
+				flex-basis: 100%;
+				display: flex;
+				justify-content: center;
+				width: 100vw;
+				.item{
+					padding-bottom: 20px;
+				}
+				.wrongInput{
+					input{
+						border: 2px solid red;
+					}
+					p{
+						color: red;
+					}
+				}
+				.column {
+					flex-flow: column;
+				}
+				input {
+					width: 30vw;
+				}
+			}
+		}
+		.submit {
+			button {
+				background-color: #2A2A2A;
+				outline: none;
+				color: white;
+				font-size: inherit;
+				font-family: inherit;
+				border-radius: 20px;
+				padding: 0.3em 1.6em	0.3em 1.6em;		
+				border: none;		
+				transition: all 0.3s ease;
+			}
+			button:hover{
+				background-color: white;
+				color: black;
+				cursor: pointer;
+			}
+		}
+		.links {
+			margin-top: 20px;
+			a{
+				text-decoration: underline;
+			}
+			a:hover{
+				cursor: pointer;
+			}
+		}
+	}
+	.login {
+		transform: translateY(-100px);
+		.title {
+			margin-top: 140px;
+			text-align: center;
+
+			.mainTitle {
+				font-size: 2.7em;
+			}
+
+			.subTitle {
+				margin-top: 20px;
+				font-size: 1.5em;
+			}
+		}
+		.inputs{
+			padding-top: 20px;
+			margin: 0 auto;
+			display: flex;
+			flex-flow: column;
+			.item{
+				margin: 0 auto;
+				width: 30vw;
+				margin-bottom: 20px;
+				input {
+					padding: 0 12px;
+					color: white;
+					margin-top: 5px;
+					box-sizing: border-box;
+					width: 30vw;
+					height: 2.7vw;
+					background: #2A2A2A;
+					border-radius: 20px;
+				}
+			}
+			
+		}
+		.submit{
+			margin-top: 10px;
+			display: flex;
+			justify-content: center;
+			button {
+				background-color: #2A2A2A;
+				outline: none;
+				color: white;
+				font-size: inherit;
+				font-family: inherit;
+				border-radius: 20px;
+				padding: 0.3em 1.6em	0.3em 1.6em;		
+				border: none;		
+				transition: all 0.3s ease;
+			}
+			button:hover{
+				background-color: white;
+				color: black;
+				cursor: pointer;
+			}
+		}
+		.links{
+			margin-top: 20px;
+			display: flex;
+			justify-content: center;
+			a{
+				text-decoration: underline;
+			}
+			a:hover{
+				cursor: pointer;
+			}
+			.forgotPasword{
+				padding-left: 40px;
+			}
+		}
+	}
+}
+
+@keyframes wrongInputAnimation {
+	0%{
+		border: none;
+	}
+	25%{
+		border: 2px solid red;
+	}
+	50%{
+		border: none;
+	}
+	75%{
+		border: 2px solid red;
+	}
+	100%{
+		border: none;
+	}
+}
+@keyframes wrongInputPAnimation {
+	0%{
+		color: white;
+	}
+	25%{
+		color: red;
+	}
+	50%{
+		color: white;
+	}
+	75%{
+		color: red;
+	}
+	100%{
+		color: white;
+	}
+	
+}

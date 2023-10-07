@@ -1,0 +1,610 @@
+@font-face {
+	font-family: 'mplusRegular';
+	src: url(../styles/fonts/MPLUSRounded1c-Regular.ttf);
+}
+
+body {
+	#root {
+		.settings {
+			display: flex;
+			width: 100%;
+			height: calc(100vh - 60px);
+			flex: 1 1;
+			overflow-x: hidden;
+			.newPfpSelectPopup {
+				z-index: 5;
+				display: flex;
+				position: absolute;
+				top: calc(-100% - 60px);
+				width: 100vw;
+				height: calc(100vh - 60px);
+				background: linear-gradient(to top,transparent, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.5) 100%);
+				transition: all 0.3s ease;
+				justify-content: center;
+				align-items: center;
+
+				.block {
+					color: white;
+					display: flex;
+					flex-flow: column;
+					width: 1000px;
+					height: 450px;
+					border-radius: 18px;
+					background: #121212;
+
+					.settingsRow {
+						background: transparent;
+						display: flex;
+						flex-flow: row;
+						justify-content: space-around;
+					}
+
+					.pfpPreview {
+						.fullPreview {
+							box-sizing: border-box;
+							height: 100%;
+
+							h1 {
+								font-size: 1.3em;
+								margin: 11px 0 11px;
+							}
+
+							.view {
+								width: 500px;
+								height: 250px;
+								cursor: pointer;
+								border-radius: 10px;
+								display: flex;
+								justify-content: center;
+								align-items: center;
+								background: #000;
+								transition: all 0.3s ease;
+								img {
+									cursor: pointer;
+									border-radius: 10px;
+									width: 100%;
+									height: 100%;
+									object-fit: cover;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+								}	
+
+								
+							}
+							.view:hover {
+								opacity: 0.8;
+								background: rgba(10, 10, 10, 1);
+							}
+							.hint {
+								font-size: 0.7em;
+								margin: 3px 0 13px;
+							}
+						}
+
+						.column {
+							display: flex;
+							flex-flow: column;
+							justify-content: center;
+							align-items: center;
+						}
+
+						.preview {
+							justify-content: start;
+
+							h1 {
+								font-size: 1.3em;
+								margin: 20px 0 11px;
+							}
+
+							.previewCircle {
+								border-radius: 50%;
+								width: 250px;
+								height: 250px;
+								overflow: hidden;
+
+								img {
+									object-fit: cover;
+									width: 100%;
+									height: 100%;
+
+								}
+
+								.placeholder {
+									border-radius: 50%;
+									width: 250px;
+									height: 250px;
+									background: #000;
+								}
+							}
+						}
+					}
+
+					.buttons {
+						display: flex;
+						flex-flow: row;
+						justify-content: center;
+						align-items: center;
+						margin-bottom: 37px;
+
+						.button {
+							cursor: pointer;
+							width: 250px;
+							height: 55px;
+							font-size: 1.3em;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border-radius: 15px;
+						}
+						.button:hover{
+							text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+						}
+
+						.cancelButton {
+							background: #210000;
+							margin-right: 42px;
+						}
+
+						.proceedButton {
+							margin-left: 42px;
+							background: #000;
+						}
+					}
+				}
+			}
+
+			.shown {
+				top: 60px !important;
+			}
+
+			.settingsContainer {
+				background: transparent !important;
+				
+				width: 90vw;
+				margin: 0 auto;
+				display: flex;
+				flex-flow: column;
+				align-items: center;
+
+				.hidden {
+					opacity: 0;
+					pointer-events: none;
+				}
+
+				.shown {
+					opacity: 1;
+					pointer-events: all;
+				}
+
+
+				.PasswordVerifyPopup {
+					transition: all 0.3s ease;
+					background: rgba($color: #000000, $alpha: 0.5);
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: calc(100vh - 60px);
+					z-index: 100;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					.container {
+						width: 550px;
+						box-sizing: border-box;
+						height: 450px;
+						background: #121212;
+						border-radius: 20px;
+						padding: 60px 75px 35px;
+						display: flex;
+						flex-flow: column;
+
+						.sheesh {
+							width: 100%;
+
+							.inputContainer {
+								width: 100%;
+								margin: 0;
+								padding: 0;
+
+								.input {
+									background: #000;
+									border-radius: 15px;
+									display: flex;
+									align-items: center;
+									justify-content: space-between;
+
+									.textarea {
+										flex-grow: 1;
+										background: transparent;
+										margin: 9px 20px 9px 20px;
+										height: 32px;
+										font-size: 0.9em;
+										color: white;
+									}
+								}
+
+								.validationIcoBox {
+									width: 24px;
+									height: 24px;
+									margin-right: 11px;
+
+									svg {
+										margin-top: 2px;
+										width: 24px;
+										height: 24px;
+										transition: all 0.3s ease;
+									}
+
+									.validatedIco {
+										top: 13px !important;
+										right: 21px !important;
+										position: absolute;
+
+									}
+								}
+
+								.hidden {
+									opacity: 0;
+								}
+
+								.shown {
+									opacity: 1;
+								}
+							}
+						}
+
+						.oldPassword {
+							margin-bottom: 70px;
+						}
+
+						.newPassword {
+							margin-bottom: 30px;
+						}
+
+						.newPassConf {
+							margin-bottom: 60px;
+						}
+
+						.buttons {
+							width: 100%;
+							display: flex;
+							flex-flow: row;
+							justify-content: center;
+							align-items: center;
+
+							.button {
+								color: white;
+								font-size: 0.9em;
+								display: flex;
+								align-items: center;
+								border-radius: 10px;
+								cursor: pointer;
+								height: 50px;
+								text-align: center;
+
+								span {
+									flex-grow: 1;
+								}
+							}
+
+							.cancel {
+								background: #210000;
+								width: 165px;
+							}
+
+							.submit {
+								width: 200px;
+								background: #000;
+								margin-left: 35px;
+							}
+						}
+					}
+				}
+
+				.item {
+					margin: 0 auto;
+					position: relative;
+
+					.blocked {
+						pointer-events: none;
+					}
+
+					.editButton {
+						display: flex;
+						width: 40px;
+						height: 40px;
+						border-radius: 10px;
+						transform: translate(405px, -43.5px);
+						transition: all 0.3s ease;
+						cursor: pointer;
+						align-items: center;
+
+						.editIco {
+							margin: 0 auto;
+							width: 27px;
+							height: 27px;
+
+							path {
+								transition: all 0.3s ease;
+							}
+						}
+					}
+
+					.editButton:hover {
+						background: rgba($color: #fff, $alpha: 0.1);
+					}
+
+					.editButton:hover>.editIco {
+						path {
+							stroke: white;
+						}
+					}
+
+					.blockedState {
+						background: rgba(13, 13, 13, 0.9);
+						opacity: 0.5;
+						width: 450px;
+						transform: translateY(-47px);
+						border-radius: 15px;
+						position: absolute;
+						height: 47px;
+					}
+
+					.settingName {
+						margin-bottom: 20px;
+						text-align: center;
+						color: white;
+						font-family: 'mplusRegular';
+					}
+					.previewBox{
+						color: white;
+						text-align: center;
+						margin-bottom: 40px;
+					}
+
+					.input {
+						text-align: center;
+						background: #151515;
+						width: 450px;
+						height: 47px;
+						border-radius: 15px;
+						color: white;
+						font-family: 'mplusRegular';
+					}
+
+				}
+
+				.grid {
+					background: transparent;
+					display: grid;
+					width: 100%;
+					grid-template-areas:
+						". . e . f . ."
+						". . a . b . ."
+						". . c . d . .";
+				}
+
+				.pfpSettings {
+					padding: 90px 0;
+
+					.pfp {
+						box-sizing: border-box;
+						border-radius: 50%;
+						border: 2px solid white;
+						width: 150px;
+						height: 150px;
+						cursor: pointer;
+						object-fit: cover;
+					}
+
+					.pfpInput {
+						display: none;
+						width: 0;
+					}
+				}
+
+				.passwordSettings {
+					grid-area: c;
+
+					.placeholder {
+						background: #151515;
+						width: 450px;
+						height: 47px;
+						border-radius: 15px;
+						color: #7F7F7F;
+						font-family: 'mPlusRegular';
+						justify-content: center;
+						align-items: center;
+						display: flex;
+					}
+
+				}
+
+				.userNameSettings {
+					grid-area: a;
+				}
+				.emailPreview {
+					grid-area: e;
+				}
+				.phoneNumber {
+					grid-area: f;
+				}
+				.birthDateSettings {
+					grid-area: d;
+
+					.inputs {
+						.input {
+							box-sizing: border-box;
+							padding: 0 50px;
+						}
+					}
+				}
+
+				.statusSettings {
+					grid-area: b;
+				}
+
+				.isPrivateSwitcher {
+					font-family: mplusRegular;
+					margin: 0 0 30px 0;
+					display: flex;
+					flex-flow: column;
+					justify-content: center;
+					align-items: center;
+					.disclaimer {
+						color: #fff;
+						text-align: center;
+						margin: 20px 0;
+					}
+
+					.container {
+						width: 100px;
+						height: 45px;
+						transform: scale(0.8);
+						background: linear-gradient(270deg, #FFFFFF 1.04%, #E9E9E9 32.81%, #242424 56.25%, #1A1A1A 76.56%, #000000 100%) !important;
+						transition: all 0.3s ease;
+						border-radius: 30px;
+
+						.checkField {
+							cursor: pointer;
+							width: 98%;
+							height: 96%;
+							border-radius: 23px;
+							background: #0D0D0D;
+							transition: all 0.3s ease;
+							margin: 1px;
+
+							.checkMark {
+								background: #000;
+								border-radius: 50%;
+								width: 46%;
+								height: 105%;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								transform: translate(-2px, -1px);
+								transition: all 0.3s ease;
+							}
+
+							.checked {
+								transform: translate(55px, -1px);
+								background: white;
+							}
+
+						}
+
+						.checkedField {
+							background: #DFDFDF;
+						}
+
+					}
+
+				}
+
+				.saveBlock {
+					font-family: mplusRegular;
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10.96%, rgba(0, 0, 0, 0.824957) 49.91%, rgba(0, 0, 0, 0.908497) 74.96%, rgba(0, 0, 0, 0.93) 100%);
+					width: 100vw;
+					height: 150px;
+					display: flex;
+					flex-flow: column;
+					align-items: center;
+					justify-content: center;
+					box-sizing: border-box;
+					padding: 0 0 40px;
+
+					.saveQuestion {
+						color: white;
+						margin-bottom: 30px;
+					}
+
+					.buttons {
+						display: flex;
+						flex-flow: row;
+						margin: 0 auto;
+						width: 200px;
+						justify-content: space-between;
+
+						.button {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border-radius: 15px;
+							width: 80px;
+							cursor: pointer;
+							height: 40px;
+						}
+
+						.reset {
+							background: #000;
+						}
+
+						.submit {
+							background: white;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		body {
+			.settings {
+				.container {
+					.pfpSettings {
+						.pfp {
+							cursor: pointer;
+							width: 100px;
+							height: 100px;
+						}
+
+					}
+
+					.item {
+						margin: 0 auto 40px;
+						width: 300px;
+
+						.input {
+							width: 300px;
+							height: 37px;
+							border-radius: 10px;
+						}
+
+						.editButton {
+							transform: translate(264px, -36px) scale(0.9);
+							width: 35px;
+							height: 35px;
+						}
+
+						.blockedState {
+							width: 300px;
+							height: 37px;
+							transform: translateY(-38px);
+							border-radius: 10px;
+
+						}
+					}
+
+					.passwordSettings {
+						.placeholder {
+							width: 300px;
+							height: 37px;
+							border-radius: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.placeholder {
+			width: 300px;
+			height: 37px;
+		}
+	}
+}

@@ -1,0 +1,180 @@
+body {
+	
+
+	#root {
+		
+		.header {
+			position: sticky !important;
+			transition: all 0.3s ease;
+			top: 0;
+		}
+
+		.hidden {
+			top: -60px;
+		}
+
+		.profileContainer {
+			overflow-x: hidden;
+			background: #000;
+			.profile {
+				opacity: 0;
+				transition: all 0.3s ease;
+				position: relative;
+				.gradient{
+					position: absolute;
+					top: 60vh;
+					left: 0;
+					z-index: 2;
+					width: 100vw;
+					height: calc(100% - 60vh);
+					background: linear-gradient(to bottom, transparent, rgba(0,0,0, 0.5) 6%, rgba(0,0,0, 0.7) 8%,rgba(0,0,0, 1) 10%,);
+					mix-blend-mode: normal;
+
+				}
+				.pfpBig {
+					position: fixed;
+					width: 100vw;
+					background: white;
+					z-index: 1;
+
+					img {
+						width: 100%;
+					}
+				}
+				.scrollTarget{
+					transform: translateY(-200px);
+				}
+				.scrollTarget2{
+					transform: translateY(-202px);
+				}
+				
+				.userContainer {
+					padding-top: 100vh;
+					position: relative;
+					z-index: 4;
+					width: 1140px;
+					margin: 0 auto;
+					
+					.underPfp {
+						position: relative;
+						// transform: translateY(-40px);
+						z-index: 2;
+						background: radial-gradient(circle at 30% 0, rgba(0, 0, 0, 1) 0%, rgba(15, 15, 15, 1) 100%);
+						border-radius: 28px 28px 0 0 ;
+						border: 1px solid #252525;
+
+						.profileInfo {
+							padding-top: 60px;
+							width: auto;
+							text-align: center;
+							.userName {
+								.pfp{
+									width: 150px;
+									height: 150px;
+									border-radius: 50%;
+									border: 1px solid white;
+									margin-right: 20px;
+								}
+								display: flex;
+								flex-flow: row;
+								align-items: center;
+								justify-content: center;
+								color: white;
+								font-size: 48px;
+
+								.settingsIco {
+									transform: translateY(5px);
+									padding-left: 30px;
+									font-size: 12px;
+									color: #747474;
+								}
+							}
+
+							.status {
+								color: #747474;
+								display: inline-block;
+								margin-top: 17px;
+								font-size: 24px;
+							}
+						}
+
+						.userPosts {
+							width: 86%;
+							margin: 0 auto;
+							display: flex;
+							flex-flow: column-reverse;
+
+							.post {
+								.postContent {
+									.postHead{
+										.postAuthor {
+											img{
+												border: 1px solid white;
+												border-radius: 50%;
+											}
+										}
+									}
+									.postBody {
+										.inputContainer {
+											padding: 0;
+										}
+									}
+									.postFoot{
+										color: white;
+									}
+									.postMedia {
+										width: 100%;
+										display: flex;
+										justify-content: center;
+
+										img {
+											width: 50%;
+
+										}
+									}
+								}
+							}
+						}
+						.noPosts{
+							margin: 0 auto;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							width: 800px;
+							height: 500px;
+							.text{
+								flex-grow: 1;
+								text-align: center;
+								font-size: 2em;
+								color: #747474;
+							}
+						}
+
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@keyframes loadingAnimation {
+	0% {
+		stroke: rgb(70, 70, 70);
+
+	}
+
+	// 40%{
+	// 	stroke: rgb(80,80,80);
+	// }
+	50% {
+		stroke: rgb(120, 120, 120);
+	}
+
+	// 60%{
+	// 	stroke: rgb(80,80,80);
+	// }
+	100% {
+		stroke: rgb(70, 70, 70);
+	}
+}
