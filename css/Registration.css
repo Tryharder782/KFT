@@ -1,0 +1,295 @@
+body {
+  overflow-x: hidden;
+}
+
+.registrationContainer {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 0, 0)), to(rgba(30, 30, 30, 0.5)));
+  background: -o-linear-gradient(rgb(0, 0, 0), rgba(30, 30, 30, 0.5));
+  background: linear-gradient(rgb(0, 0, 0), rgba(30, 30, 30, 0.5));
+  color: #fff;
+  height: 100%;
+}
+.registrationContainer .registration {
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.registrationContainer .registration .title {
+  margin-top: 140px;
+  text-align: center;
+}
+.registrationContainer .registration .title .mainTitle {
+  font-size: 2.7em;
+}
+.registrationContainer .registration .title .subTitle {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+.registrationContainer .registration .title .description {
+  margin-top: 10px;
+}
+.registrationContainer .registration .inputs {
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+  height: auto;
+  margin-top: 15px;
+  width: 200vw;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.registrationContainer .registration .inputs .phoneNumber input::-webkit-inner-spin-button,
+.registrationContainer .registration .inputs .phoneNumber input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+.registrationContainer .registration .inputs .phoneNumber p {
+  margin-bottom: 5px;
+}
+.registrationContainer .registration .inputs .phoneNumber .input {
+  padding: 0 12px;
+  color: white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 30vw;
+  height: 2.7vw;
+  background: #2A2A2A;
+  border-radius: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.registrationContainer .registration .inputs .phoneNumber .input .plus {
+  margin-bottom: 3px;
+}
+.registrationContainer .registration .inputs .phoneNumber .input input {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+.registrationContainer .registration .inputs input {
+  padding: 0 12px;
+  color: white;
+  margin-top: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 30vw;
+  height: 2.7vw;
+  background: #2A2A2A;
+  border-radius: 20px;
+}
+.registrationContainer .registration .inputs .stage1 {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+.registrationContainer .registration .inputs .stage1 .item {
+  margin-bottom: 20px;
+}
+.registrationContainer .registration .inputs .stage1 .wrongInput input {
+  border: 2px solid red;
+}
+.registrationContainer .registration .inputs .stage1 .wrongInput p {
+  color: red;
+}
+.registrationContainer .registration .inputs .stage1 .col2 {
+  padding-left: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.registrationContainer .registration .inputs .stage1 .col2 .birthDate {
+  padding: 10px 0 18px;
+}
+.registrationContainer .registration .inputs .stage1 .col2 .birthDate select {
+  font-size: 1em;
+  margin-left: 10px;
+  border: none;
+  border-radius: 15px;
+  padding: 0 5px 0 10px;
+  color: white;
+  background: #2A2A2A;
+  font-family: inherit;
+  outline: none;
+  width: auto;
+  min-height: 20px;
+}
+.registrationContainer .registration .inputs .stage1 .col2 .birthDate select::-webkit-scrollbar {
+  display: none;
+}
+.registrationContainer .registration .inputs .stage1 .col2 .birthDate .select-wrapper {
+  display: inline-block;
+}
+.registrationContainer .registration .inputs .stage2 {
+  margin-top: 30px;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+}
+.registrationContainer .registration .inputs .stage2 .item {
+  padding-bottom: 20px;
+}
+.registrationContainer .registration .inputs .stage2 .wrongInput input {
+  border: 2px solid red;
+}
+.registrationContainer .registration .inputs .stage2 .wrongInput p {
+  color: red;
+}
+.registrationContainer .registration .inputs .stage2 .column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.registrationContainer .registration .inputs .stage2 input {
+  width: 30vw;
+}
+.registrationContainer .registration .submit button {
+  background-color: #2A2A2A;
+  outline: none;
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 20px;
+  padding: 0.3em 1.6em 0.3em 1.6em;
+  border: none;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.registrationContainer .registration .submit button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.registrationContainer .registration .links {
+  margin-top: 20px;
+}
+.registrationContainer .registration .links a {
+  text-decoration: underline;
+}
+.registrationContainer .registration .links a:hover {
+  cursor: pointer;
+}
+.registrationContainer .login .title {
+  margin-top: 140px;
+  text-align: center;
+}
+.registrationContainer .login .title .mainTitle {
+  font-size: 2.7em;
+}
+.registrationContainer .login .title .subTitle {
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+.registrationContainer .login .inputs {
+  padding-top: 20px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.registrationContainer .login .inputs .item {
+  margin: 0 auto;
+  width: 30vw;
+  margin-bottom: 20px;
+}
+.registrationContainer .login .inputs .item input {
+  padding: 0 12px;
+  color: white;
+  margin-top: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 30vw;
+  height: 2.7vw;
+  background: #2A2A2A;
+  border-radius: 20px;
+}
+.registrationContainer .login .submit {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.registrationContainer .login .submit button {
+  background-color: #2A2A2A;
+  outline: none;
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 20px;
+  padding: 0.3em 1.6em 0.3em 1.6em;
+  border: none;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.registrationContainer .login .submit button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.registrationContainer .login .links {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.registrationContainer .login .links a {
+  text-decoration: underline;
+}
+.registrationContainer .login .links a:hover {
+  cursor: pointer;
+}
+.registrationContainer .login .links .forgotPasword {
+  padding-left: 40px;
+}

@@ -1,0 +1,240 @@
+@font-face {
+  font-family: "Rounded Mplus 1c Bold";
+  src: url(./fonts/MPLUSRounded1c-Bold.ttf);
+}
+body {
+  font-family: "Rounded Mplus 1c Bold";
+}
+body .row {
+  background: -o-radial-gradient(30% 0, circle, rgb(0, 0, 0) 0%, rgb(15, 15, 15) 100%);
+  background: radial-gradient(circle at 30% 0, rgb(0, 0, 0) 0%, rgb(15, 15, 15) 100%);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+body .row .right {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+body .row .right .text {
+  -ms-flex-item-align: center;
+      align-self: center;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+body .row .right .text h1 {
+  font-size: 40px;
+}
+body .row .right .text h3 {
+  font-size: 22px;
+  margin-top: 50px;
+  line-height: 1.5;
+}
+body .row .right .content {
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+body .row .right .content .chatHeader {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  width: 100%;
+  padding: 5px 0 5px 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(rgba(0, 0, 0, 0.95)), color-stop(rgba(0, 0, 0, 0.85)), to(transparent));
+  background: -o-linear-gradient(black, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85), transparent);
+  background: linear-gradient(black, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.85), transparent);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body .row .right .content .chatHeader .chatName {
+  padding-left: 40px;
+  color: white;
+  font-size: 26px;
+}
+body .row .right .content .chat {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border-radius: 8px 0 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body .row .right .content .chat .container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+body .row .right .content .chat .container .messages {
+  -ms-flex-preferred-size: 50px;
+      flex-basis: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 2;
+      flex-shrink: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 50px 30px 0 30px;
+}
+body .row .right .content .chat .container .messageText {
+  overflow-wrap: break-word;
+  max-width: 85%;
+  padding: 8px 0 10px 9px;
+  color: #C1C1C1;
+}
+body .row .right .content .chat .container .messageContent {
+  width: auto;
+  max-width: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+body .row .right .content .chat .container .sentTime {
+  -ms-flex-item-align: end;
+      align-self: end;
+  margin-left: auto;
+  margin-bottom: 5px;
+  color: #AFAFAF;
+  font-size: 11px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+body .row .right .content .chat .container .myMessage {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse nowrap;
+          flex-flow: row-reverse nowrap;
+  padding-bottom: 4px;
+  text-align: left;
+}
+body .row .right .content .chat .container .myMessage .senderPfp {
+  height: 35px;
+}
+body .row .right .content .chat .container .myMessage .messageCorner img {
+  z-index: -5;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+body .row .right .content .chat .container .myMessage .messageContent {
+  -webkit-transform: translateX(3px);
+      -ms-transform: translateX(3px);
+          transform: translateX(3px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #000;
+  border-radius: 6px 0 6px 6px;
+}
+body .row .right .content .chat .container .myMessage .messageContent span {
+  font-size: 14px;
+  color: #C1C1C1;
+  display: inline-block;
+  -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+          transform: translateY(5px);
+}
+body .row .right .content .chat .container .othersMessage {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  padding-bottom: 4px;
+  text-align: left;
+}
+body .row .right .content .chat .container .othersMessage .senderPfp {
+  height: 35px;
+}
+body .row .right .content .chat .container .othersMessage .messageCorner img {
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+body .row .right .content .chat .container .othersMessage .messageContent {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: auto;
+  background: #2C2C2C;
+  border-radius: 0 6px 6px 6px;
+}
+body .row .right .content .chat .container .othersMessage .messageContent span {
+  font-size: 14px;
+  color: #C1C1C1;
+  display: inline-block;
+  -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+          transform: translateY(5px);
+}
