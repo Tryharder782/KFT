@@ -96,9 +96,9 @@ class UserController {
 		}
 	}
 
-	async login(req, res, next) {
-		try {
-			let { email, password } = req.body
+        async login(req, res, next) {
+                try {
+                        let { email, password } = req.body
 			let id
 			// console.log('login wtf', email)
 			await UserInfo.findOne({
@@ -126,12 +126,41 @@ class UserController {
 			delete user.password
 			delete user.user_info.mediaList
 
-			const token = generateJwt(user, 'reg/log')
-			return res.json({ token })
-		} catch (error){
-			return next(ApiError.internal(error))
-		}
-	}
+                        const token = generateJwt(user, 'reg/log')
+                        return res.json({ token })
+                } catch (error){
+                        return next(ApiError.internal(error))
+                }
+        }
+
+        async guestLogin(req, res, next) {
+                try {
+                        const guest = {
+                                id: 0,
+                                userName: 'Guest',
+                                profilePicture: 'nopfp.webp',
+                                role: 'GUEST',
+                                isOnline: false,
+                                user_info: {
+                                        email: 'guest@example.com',
+                                        phoneNumber: null,
+                                        groupList: [],
+                                        friendList: [],
+                                        birthYear: 1970,
+                                        birthMonth: 1,
+                                        birthDay: 1,
+                                        status: 'Guest profile',
+                                        tokenVersion: 0,
+                                        isPrivate: false,
+                                        profileHeaderPicture: 'defaultProfileHeader.png'
+                                }
+                        }
+                        const token = generateJwt(guest, 'reg/log')
+                        return res.json({ token })
+                } catch (error) {
+                        return next(ApiError.internal(error))
+                }
+        }
 	async check(req, res, next) {
 		// console.log(req.user)
 		try {

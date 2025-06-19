@@ -7,6 +7,7 @@ const passport = require('passport');
 
 router.post('/registration', UserController.registration)
 router.post('/login',  UserController.login)
+router.post('/guest-login', UserController.guestLogin)
 router.get('/check', authMiddleware, UserController.check)
 router.put('/update/:id', UserController.update)
 router.get('/getAll', UserController.getAll) //checkRole('ADMIN')
