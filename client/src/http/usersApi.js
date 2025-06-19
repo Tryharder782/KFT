@@ -27,9 +27,15 @@ export const friendRequest = async(userId, friendId) => {
 }
 
 export const login = async(user) => {
-	const {data} = await $host.post('/api/users/login', user)
-	localStorage.setItem('token', data.token)
-	return jwt_decode(data.token)
+        const {data} = await $host.post('/api/users/login', user)
+        localStorage.setItem('token', data.token)
+        return jwt_decode(data.token)
+}
+
+export const guestLogin = async() => {
+        const {data} = await $host.post('/api/users/guest-login')
+        localStorage.setItem('token', data.token)
+        return jwt_decode(data.token)
 }
 
 export const getExactUser = async(id,userId) => {

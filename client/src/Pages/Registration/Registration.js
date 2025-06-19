@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../..';
-import { check, login, registration } from '../../http/usersApi';
+import { check, login, registration, guestLogin } from '../../http/usersApi';
 import '../../styles/Registration.scss'
 
 const Registration = observer(() => {
@@ -128,22 +128,29 @@ const Registration = observer(() => {
 			})
 		}
 	}
-	const loginHandler = async () => {
-		try {
-			let data
-			const formData = new FormData()
-			formData.append('email', loginEmail)
-			formData.append('password', loginPassword)
-			data = await login(formData)
-			console.log(data);
-			user.setUser(data)
-			user.setIsAuth(true)
-			navigate('/home')
-		} catch (e) {
-			alert(e.response.data.message)
-			console.log(e)
-		}
-	}
+        const loginHandler = async () => {
+                try {
+                        let data
+                        const formData = new FormData()
+                        formData.append('email', loginEmail)
+                        formData.append('password', loginPassword)
+                        data = await login(formData)
+                        console.log(data);
+                        user.setUser(data)
+                        user.setIsAuth(true)
+                        navigate('/home')
+                } catch (e) {
+                        alert(e.response.data.message)
+                        console.log(e)
+                }
+        }
+
+        const guestHandler = async () => {
+                const data = await guestLogin()
+                user.setUser(data)
+                user.setIsAuth(true)
+                navigate('/home')
+        }
 
 	console.log(toJS(user));
 	// ! save user Data in Store and localStorage
@@ -299,9 +306,10 @@ const Registration = observer(() => {
 						<input type='password' value={loginPassword} onChange={e => setLoginPassword(e.target.value)} />
 					</div>
 				</div>
-				<div className="submit">
-					<button onClick={() => loginHandler()}>Log in</button>
-				</div>
+                                <div className="submit">
+                                        <button onClick={() => loginHandler()}>Log in</button>
+                                        <button style={{marginLeft: '20px'}} onClick={() => guestHandler()}>Continue as Guest</button>
+                                </div>
 				<div className="links">
 					<a onClick={() => setIsLogin(!isLogin)}>New to KFT? - register</a>
 					<a className='forgotPasword' onClick={() => redirect('recovery')} >Forgot password?</a>
