@@ -219,12 +219,16 @@ body {
 						}
 					}
 				}
-				.buttonBlock {
-					cursor: pointer;
-					display: flex;
-					padding: 40px 40px;
-					border-radius: 20px;
-					border:  1px solid #5F5D5D;
+                               .buttonBlock {
+                                       cursor: pointer;
+                                       display: flex;
+                                       padding: 40px 40px;
+                                       border-radius: 20px;
+                                       border:  1px solid #5F5D5D;
+                                       &.disabled {
+                                               opacity: 0.5;
+                                               pointer-events: none;
+                                       }
 					.text {
 						display: flex;
 						align-items: center;
