@@ -9,7 +9,7 @@ export const updatePost = async(postData) => {
 	try {
 		let start = Date.now()
 		console.log("запрос отправлен", start)
-		const {data} = await $host.put(`/api/posts/update/${postData.id}`, postData)
+                const {data} = await $authHost.put(`/api/posts/update/${postData.id}`, postData)
 		let end = Date.now()
 		console.log("задержка: ", end - start)
 		return data
@@ -22,7 +22,7 @@ export const createPost = async(postData) =>{
 
 	try{
 		console.log('postData', postData.getAll('mediaList'))
-		const {data} = await $host.post('/api/posts/create', postData, {
+                const {data} = await $authHost.post('/api/posts/create', postData, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
 			},
@@ -57,7 +57,7 @@ export const createComment = async (postId, text, userId, replyingToCommentId, m
 
 export const likeComment = async (commentId, postId, userId) => {
 	try {
-		const {data} = await $host.put('/api/comments/likeComment', {commentId, postId, userId});
+                const {data} = await $authHost.put('/api/comments/likeComment', {commentId, postId, userId});
 		return (data)
 	} catch (error) {
 		alert(error)
@@ -65,7 +65,7 @@ export const likeComment = async (commentId, postId, userId) => {
 }
 export const unlikeComment = async (commentId, postId, userId) => {
 	try {
-		const {data} = await $host.delete(`/api/comments/unlikeComment/${commentId}/${postId}/${userId}`, {commentId, postId, userId});
+                const {data} = await $authHost.delete(`/api/comments/unlikeComment/${commentId}/${postId}/${userId}`, {commentId, postId, userId});
 		return (data)
 	} catch (error) {
 		alert(error)
@@ -94,7 +94,7 @@ export const getPosts = async () => {
 export const likePost = async (postId, userId) => {
 	try {
 		console.log(postId, userId)
-		const {data} = await $host.put('/api/posts/likePost',{postId, userId})
+                const {data} = await $authHost.put('/api/posts/likePost',{postId, userId})
 		return (data);
 	} catch (error) {
 		alert(error)
@@ -103,7 +103,7 @@ export const likePost = async (postId, userId) => {
 export const unlikePost = async (postId, userId) => {
 	try {
 		console.log(postId, userId)
-		const {data} = await $host.delete(`/api/posts/unlikePost/${postId}/${userId}`)
+                const {data} = await $authHost.delete(`/api/posts/unlikePost/${postId}/${userId}`)
 		return (data);
 	} catch (error) {
 		alert(error)

@@ -21,9 +21,9 @@ export const searchUsers = async(text) => {
 	return (data)
 }
 export const friendRequest = async(userId, friendId) => {
-	console.log('userId',userId, 'friendId', friendId)
-	const {data} = await $host.post('/api/users/friendRequest', {userId, friendId})
-	return (data)
+        console.log('userId',userId, 'friendId', friendId)
+        const {data} = await $authHost.post('/api/users/friendRequest', {userId, friendId})
+        return (data)
 }
 
 export const login = async(user) => {
