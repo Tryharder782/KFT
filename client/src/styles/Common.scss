@@ -302,10 +302,14 @@ body {
 									}
 								}
 							}
-							.friendRequestButton {
-								margin-left: auto;
-								cursor: pointer;
-							}
+                                                       .friendRequestButton {
+                                                               margin-left: auto;
+                                                               cursor: pointer;
+                                                       }
+                                                       .friendRequestButton.disabled {
+                                                               opacity: 0.5;
+                                                               pointer-events: none;
+                                                       }
 						}
 
 						.searchResultItem:hover {
@@ -1054,7 +1058,7 @@ body {
 			font-family: 'MplusRegular';
 			padding: 0 !important;
 
-			.textarea {
+.textarea {
 				transform: translateY(3px);
 				color: inherit;
 				font-family: inherit;
@@ -1105,6 +1109,10 @@ body {
 			font-family: 'MplusRegular';
 		}
 	}
+}
+.textarea.disabled {
+        opacity: 0.5;
+        pointer-events: none;
 }
 
 .sidebar {
