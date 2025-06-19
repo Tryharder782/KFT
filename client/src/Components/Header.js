@@ -165,9 +165,13 @@ const Header = observer(() => {
 			document.removeEventListener('mousedown', handleClickOutside);
 		};
 	}, [searchResultsRef, searchFieldRef, setInputFocus]);
-	const friendRequestHandler = (userId, friendId) => {
-		userId !== friendId && !user.user.friendList.includes(friendId) && friendRequest(userId, friendId);
-	};
+        const friendRequestHandler = (userId, friendId) => {
+                if (user.user.role === 'GUEST') {
+                        alert('Only registered users can add friends');
+                        return;
+                }
+                userId !== friendId && !user.user.friendList.includes(friendId) && friendRequest(userId, friendId);
+        };
 	return (
 		<div className={`header ${headerHidden ? 'hidden' : ''}`} ref={headerRef}>
 			<div className="logo" onClick={() => navigate('/home')}>

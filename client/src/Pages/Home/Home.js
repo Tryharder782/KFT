@@ -51,8 +51,12 @@ const Home = observer(({socket, socketConnect}) => {
 		}
 	}, []);
 	
-	const postCreate = async (text, media) => {
-		console.log(text, user.user.id, media)
+       const postCreate = async (text, media) => {
+                if (user.user.role === 'GUEST') {
+                        alert('Only registered users can create posts');
+                        return;
+                }
+                console.log(text, user.user.id, media)
 		const formData = new FormData()
 		formData.append('text', text)
 		formData.append('authorId', user.user.id)
@@ -114,14 +118,14 @@ const Home = observer(({socket, socketConnect}) => {
 		<div className="home" ref={homeRef}>
 		<MediaZoomPopup/>
 			<div className='HomeContainer'>
-				<CreatePostBlock 
-					newPostText={newPostText} 
-					setNewPostText={setNewPostText} 
-					postCreateTabHide={postCreateTabHide} 
-					setPostCreateTabHide={setPostCreateTabHide} 
-					postCreate={postCreate} 
-						
-					/>
+                                <CreatePostBlock
+                                        newPostText={newPostText}
+                                        setNewPostText={setNewPostText}
+                                        postCreateTabHide={postCreateTabHide}
+                                        setPostCreateTabHide={setPostCreateTabHide}
+                                        postCreate={postCreate}
+                                        isGuest={user.user.role === 'GUEST'}
+                                        />
 				{
 					!isLoading && posts.map(p =>
 						<Post

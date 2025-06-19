@@ -21,7 +21,8 @@ import FileDisplay from './FileDisplay';
 const Post = observer(({ parentRef, handleLike, postProp, author, getMultipleUsers, socket, socketConnect }) => {
 	
 	const navigate = useNavigate()
-	const { user } = useContext(Context)
+        const { user } = useContext(Context)
+        const isGuest = user.user.role === 'GUEST'
 	const [isLoading, setIsLoading] = useState(true);
 	const [loadedStages, setLoadedStages] = useState(0);
 	const [messageText, setMessageText] = useState('');
@@ -77,13 +78,17 @@ const Post = observer(({ parentRef, handleLike, postProp, author, getMultipleUse
 			target.current.play()
 		}
 	}
-	const handleLikeClick = () => {
-		// Вызовите колбэк-функцию handleLike и передайте идентификатор поста
-		if (!likeState) {
-			likePost(postProp.id, user.user.id).then(data => {
-				setlikesCounter(data)
-				setLikeState(true)
-			})
+        const handleLikeClick = () => {
+                if (isGuest) {
+                        alert('Only registered users can like posts');
+                        return;
+                }
+                // Вызовите колбэк-функцию handleLike и передайте идентификатор поста
+                if (!likeState) {
+                        likePost(postProp.id, user.user.id).then(data => {
+                                setlikesCounter(data)
+                                setLikeState(true)
+                        })
 		}
 		else if (likeState) {
 			unlikePost(postProp.id, user.user.id).then(data => {
@@ -108,10 +113,14 @@ const Post = observer(({ parentRef, handleLike, postProp, author, getMultipleUse
 		}
 		setShownCommentsNumber(prev => prev + 3)
 	};
-	const sendPostComment = (postId, replyingToCommentId) => {
-		const text = messageFormatter(messageText)
-		const userId = user.user.id
-		createComment(postProp.id, text, userId, null, selectedFile)
+        const sendPostComment = (postId, replyingToCommentId) => {
+                if (isGuest) {
+                        alert('Only registered users can comment');
+                        return;
+                }
+                const text = messageFormatter(messageText)
+                const userId = user.user.id
+                createComment(postProp.id, text, userId, null, selectedFile)
 	}
 	const sendMessageHandler = e => {
 		if (e.key === 'Enter') {
@@ -132,13 +141,13 @@ const Post = observer(({ parentRef, handleLike, postProp, author, getMultipleUse
 		}
 
 	}
-	const sendMessageClick = () => {
-		if (messageText !== '') {
-			sendPostComment()
-			setMessageText('')
+        const sendMessageClick = () => {
+                if (messageText !== '') {
+                        sendPostComment()
+                        setMessageText('')
 
-		}
-	}
+                }
+        }
 	const messageFormatter = (messageText) => {
 		let msgRowsArr = messageText.split('\n')
 		let lastLetterRow = 0
@@ -446,23 +455,25 @@ const Post = observer(({ parentRef, handleLike, postProp, author, getMultipleUse
 						</div>
 
 
-						<Input messageText={messageText}
-							parentComponent={'post'}
-							handleAttachClick={handleAttachClick}
-							handleFileChange={handleFileChange}
-							handleFileRemove={handleFileRemove}
-							textareaRef={textareaRef}
-							setMessageText={setMessageText}
-							sendMessageHandler={sendMessageHandler}
-							sendMessageClick={sendMessageClick}
-							showEmojiPicker={true}
-							showSendButton={true}
-							showRecorderButton={true}
-							showAttachFilesButton={true}
-							fileAttachRef={fileAttachRef}
-							multiple={false}
-							selectedFiles={[selectedFile]}
-						/>
+                                                <Input messageText={messageText}
+                                                        parentComponent={'post'}
+                                                        handleAttachClick={handleAttachClick}
+                                                        handleFileChange={handleFileChange}
+                                                        handleFileRemove={handleFileRemove}
+                                                        textareaRef={textareaRef}
+                                                        setMessageText={setMessageText}
+                                                        sendMessageHandler={sendMessageHandler}
+                                                        sendMessageClick={sendMessageClick}
+                                                        showEmojiPicker={true}
+                                                        showSendButton={true}
+                                                        showRecorderButton={true}
+                                                        showAttachFilesButton={true}
+                                                        fileAttachRef={fileAttachRef}
+                                                        multiple={false}
+                                                        selectedFiles={[selectedFile]}
+                                                        disabled={isGuest}
+                                                        placeHolder={isGuest ? 'только для зарегистрированных пользователей' : undefined}
+                                                />
 						<div className="postFoot">
 							<div className="comments">
 								{

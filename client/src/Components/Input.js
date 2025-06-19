@@ -47,7 +47,8 @@ const Input = observer(({
 	selectedFiles,
 	type,
 	placeHolder,
-	validationState
+        validationState,
+        disabled
 }) => {
 	const [showPicker, setShowPicker] = useState(false);
 	const handleEmojiSelect = (emoji) => {
@@ -109,34 +110,36 @@ const Input = observer(({
 				{type !== 'password' &&
 					<div className='textareaContainer'>
 						
-						<textarea ref={textareaRef}
-							className={`textarea ${isResponding ? 'responding' : ''}`}
-							value={messageText} placeholder={placeHolder ? placeHolder : 'Start typing here...'}
-							onChange={e => { setMessageText(e.target.value) }}
-							onKeyDown={e => {
-								if (e.key === 'Enter') {
-									e.preventDefault()
-								}
-								sendMessageHandler && sendMessageHandler(e)
-							}}
-						/>
+                                <textarea ref={textareaRef}
+                                        className={`textarea ${isResponding ? 'responding' : ''} ${disabled ? 'disabled' : ''}`}
+                                        value={messageText} placeholder={placeHolder ? placeHolder : 'Start typing here...'}
+                                        onChange={e => { setMessageText(e.target.value) }}
+                                        onKeyDown={e => {
+                                                if (e.key === 'Enter') {
+                                                        e.preventDefault()
+                                                }
+                                                sendMessageHandler && sendMessageHandler(e)
+                                        }}
+                                        disabled={disabled}
+                                />
 					</div>
 				}
-				{type === 'password' &&
-					<input type={type}
-						ref={textareaRef}
-						className='textarea'
-						autoComplete='new-password'
-						value={messageText}
-						placeholder={placeHolder ? placeHolder : 'Start typing here...'}
+                                {type === 'password' &&
+                                        <input type={type}
+                                                ref={textareaRef}
+                                                className={`textarea ${disabled ? 'disabled' : ''}`}
+                                                autoComplete='new-password'
+                                                value={messageText}
+                                                placeholder={placeHolder ? placeHolder : 'Start typing here...'}
 						onChange={e => { setMessageText(prev => e.target.value) }}
 						onKeyDown={e => {
 							if (e.key === 'Enter') {
 								e.preventDefault()
 							}
 							sendMessageHandler && sendMessageHandler(e)
-						}}
-					/>}
+                                                }}
+                                                disabled={disabled}
+                                        />}
 				{messageText !== '' && validationState !== undefined && (
 					<div className='validationIcoBox'>
 						<UnvalidatedIco className={`unvalidatedIco validationIco ${validationState ? 'hidden' : 'shown'}`} />

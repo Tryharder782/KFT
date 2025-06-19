@@ -34,13 +34,17 @@ const Comment = ({ comment, sender, likeClickedIco, postId, userId}) => {
 		zoomMedia
 	} = useMediaZoom()
 	
-	const likeStateHandler = () => {
-		if (!likeState){
-			likeComment(comment.id, postId, userId).then(data => setLikesCounter(data)).catch(err => console.log(err))
-		}
-		else if (likeState) {
-			unlikeComment(comment.id, postId, userId).then(data => setLikesCounter(data)).catch(err => console.log(err))
-		}
+        const likeStateHandler = () => {
+                if (userId === 0) {
+                        alert('Only registered users can like comments');
+                        return;
+                }
+                if (!likeState){
+                        likeComment(comment.id, postId, userId).then(data => setLikesCounter(data)).catch(err => console.log(err))
+                }
+                else if (likeState) {
+                        unlikeComment(comment.id, postId, userId).then(data => setLikesCounter(data)).catch(err => console.log(err))
+                }
 		setLikeState (!likeState)
 	}
 	let extension
