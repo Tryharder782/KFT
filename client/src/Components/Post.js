@@ -472,7 +472,7 @@ const Post = observer(({ parentRef, handleLike, postProp, author, getMultipleUse
                                                         multiple={false}
                                                         selectedFiles={[selectedFile]}
                                                         disabled={isGuest}
-                                                        placeHolder={isGuest ? 'только для зарегистрированных пользователей' : undefined}
+                                                        placeHolder={isGuest ? 'only for registered users' : undefined}
                                                 />
 						<div className="postFoot">
 							<div className="comments">

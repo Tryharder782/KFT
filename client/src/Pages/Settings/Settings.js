@@ -136,11 +136,11 @@ const Settings = observer(() => {
 					<Image className="pfp" src={`${newPfp ? URL.createObjectURL(newPfp) : `/${user.user.profilePicture}`}`} />
 					<input type="file" className='pfpInput' ref={fileInputRef} onChange={e => changePfp(e)} />
 				</div>
-					{	user.user.id === 1 &&
+					{/* {	user.user.id === 1 &&
 						<div className="button" style={{background: 'red', width: 100, height: 40, cursor: 'pointer'}} onClick={() => sendTestMail()}>
 						send test mail
 						</div>
-					}
+					} */}
 				<div className="grid">
 					<div className="emailPreview item">
 						<div className="settingName">

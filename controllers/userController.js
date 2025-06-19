@@ -6,6 +6,7 @@ const { where, Op } = require("sequelize")
 const { Sequelize } = require("../db")
 const path = require("path")
 const uuid = require('uuid')
+const { log } = require("console")
 
 
 const generateJwt = (user, option) => {
@@ -196,13 +197,13 @@ class UserController {
 			let {id} = req.params
 		id = Number(id)
 		const {userName, password, status, birthDate, isPrivate, tokenVersion} = req.body
-		const {pfp} = req.files
+		const pfp = req.files ? req.files.pfp : null;
 		console.log('update', pfp);
 		let requestUser 
 		if (userName){
 			requestUser = {...requestUser, userName}
 		}
-		if ( pfp!== 'undefined' ){
+		if ( pfp ){
 			let fileExtension = pfp.mimetype.split('/')[1]
 			if (fileExtension === 'jpeg') {
 				fileExtension	= 'jpg'
@@ -243,6 +244,7 @@ class UserController {
 		return res.json(generateJwt(updatedUser,'reg/log'))
 
 		} catch (error) {
+			console.log(error)
 			return next(ApiError.internal(error))
 		}
 		
